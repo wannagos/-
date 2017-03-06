@@ -1,1 +1,2 @@
-# -just a new human to learn c++ and explore what is github.
+just a new man to learn c++ and explore what is github.
+c++primer
