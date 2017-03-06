@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<vector>
+int main()
+{
+	//word1是重复次数最多的单词，max1是其次数
+	//word2是当前正在输入的单词，max2是其次数
+	//str临时变量
+	std::string word1{ "" }, word2{ "" }, str = { "" };
+	int max1 = 1, max2 = 1;
+	while (std::cin >> str)
+	{
+		//str和word2相同，max2 + 1
+		if (str == word2)
+		{
+			max2 += 1;
+		}
+		else
+		{
+			//str和word2不同，把连续出现最多次的放在word1
+			if (max2 >= max1)
+			{
+				word1 = word2;
+				max1 = max2;
+			}
+			//word2用新词替换，重新计数
+			word2 = str;
+			max2 = 1;
+		}
+	}
+	//考虑到最后全是重复的单词的话，word2的次数有可能会比word1大
+	if (max2 >= max1)
+		{
+			word1 = word2;
+			max1 = max2;
+		}
+	std::cout << '\n';
+	std::cout << "the word is " << word1 << ",and the number is " << max1 << "." << std::endl;
+	//暂停看结果
+	system("pause");
+	return 0;
+
+}
